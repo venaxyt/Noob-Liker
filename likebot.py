@@ -1,4 +1,4 @@
-import requests, fade
+import requests, gratient, fade
 from os import system
 
 system("cls && title 𝙑𝙀𝙉𝘼𝙓 𝙉𝙊𝙊𝘽 𝙇𝙄𝙆𝙀𝙍 / 𝙂𝙄𝙏𝙃𝙐𝘽 : @venaxyt ")
@@ -19,26 +19,6 @@ def purple(text):
         if red > 255:
             red = 255
         faded += (f"\033[38;2;{red};0;220m{character}\033[0m")
-    return faded
-
-def blue(text):
-    system(""); faded = ""
-    green = 0
-    for character in text:
-        green += 3
-        if green > 255:
-            green = 255
-        faded += (f"\033[38;2;0;{green};255m{character}\033[0m")
-    return faded
-
-def red(text):
-    system(""); faded = ""
-    green = 250
-    for character in text:
-        green -= 5
-        if green < 0:
-            green = 0
-        faded += (f"\033[38;2;255;{green};0m{character}\033[0m")
     return faded
 
 print(fade.purpleblue(banner))
@@ -68,10 +48,10 @@ for line in file.splitlines():
     cookie = account[1]
     like = requests.post("https://noobhacktube.com/aj/like-system/like", data=getdata(token, video), headers=getheaders(cookie))
     if like.text == '{"status":200,"type":"added_like"}':
-        print(blue(f"  [>] Successfully liked the video ({video})"))
+        print(gratient.blue(f"  [>] Successfully liked the video ({video})"), end = "")
     elif like.text == '{"status":200,"type":"deleted_like"}':
-        print(blue(f"  [>] Successfully deleted like on video ({video})"))
+        print(gratient.blue(f"  [>] Successfully deleted like on video ({video})"), end = "")
     else:
-        print(red("  [>] An error occurred (account is probably invalid)"))
+        print(gratient.red("  [>] An error occurred (account is probably invalid)"), end = "")
 print("\n" + purple("  [>] All valid accounts liked / unliked the video"))
 system("pause >nul")
