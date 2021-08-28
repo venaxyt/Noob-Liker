@@ -63,7 +63,7 @@ def getheaders(cookie):
 
 file = open("accounts.txt", "r", encoding="utf-8").read()
 for line in file.splitlines():
-    account = line.split("²")
+    account = line.split("$!")
     token = account[0]
     cookie = account[1]
     like = requests.post("https://noobhacktube.com/aj/like-system/like", data=getdata(token, video), headers=getheaders(cookie))
